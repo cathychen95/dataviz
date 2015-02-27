@@ -1,25 +1,20 @@
 // 0 is by county, 1 is by state
 var state = 0;
 
-var inputData = []
-	inputData["c06071"] = 10
+var inputData = [];
+inputData["c06071"] = 10;
+
+var yellow_states={};
 
 $(document).ready(function() {
+
+
 
 	$('.results').hide();
 
 	// TO DO
 	// color counties with Hertz yellow to start
 	coloryellow();
-
-	/* 
-	inputData[i] {
-		var fipsCode = int
-		var leaving = int
-		var arriving = int
-		var name = string
-	}
-	*/
 
 	$('.counties path').mouseover(function() {
 		if (state == 0) {
@@ -42,9 +37,9 @@ $(document).ready(function() {
 			$(this).attr("id").indexOf('CA') > -1 || 
 			$(this).attr("id").indexOf('PA') > -1) {
 			populateResults($(this));
-			$('.results').show();
-		}
-	});
+		$('.results').show();
+	}
+});
 
 	$('.counties path').mouseleave(function() {
 		if (state == 0) {
@@ -76,21 +71,31 @@ $(document).ready(function() {
 			$('#state').html("BY COUNTY");
 			state = 0;
 		}
-    });
+	});
 
 });
 
 // svg set up - color counties with Hertz yellow
 function coloryellow() {
 	$('.counties').children().each(function () {
-    	var fipsCode = $(this).attr("class");
-    	console.log(inputData[fipsCode]);
-    	if(typeof inputData[fipsCode] != 'undefined') {
-    		$(this).data("isYellow", 1);
-    		$(this).css("fill", "#FFF600");
-    	}
+		var fipsCode = $(this).attr("class");
+		if(typeof inputData[fipsCode] != 'undefined') {
+			var state_code = $(this).attr("id").split(",")[1].trim();
+			if (state_code in yellow_states) {
+				var fips_list = yellow_states[state_code];
+				fips_list.push(fipsCode);
+				yellow_states[state_code] = fips_list;
+			}
+			else {
+				yellow_states[state_code] = [fipsCode];
+			}
+			$(this).data("isYellow", 1);
+			$(this).css("fill", "#FFF600");
+		}
 	});
+	console.log(yellow_states);
 }
+
 
 function populateResults(county) {
 	leaving(county);
