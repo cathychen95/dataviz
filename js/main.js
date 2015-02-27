@@ -6,6 +6,10 @@ inputData["c06071"] = 10;
 
 var yellow_states={};
 
+var arrivingArray = []
+var leavingArray = []
+arrivingArray["c06071"] = 10
+
 $(document).ready(function() {
 
 
@@ -71,8 +75,8 @@ $(document).ready(function() {
 			$('#state').html("BY COUNTY");
 			state = 0;
 		}
-	});
 
+    });
 });
 
 // svg set up - color counties with Hertz yellow
