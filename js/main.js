@@ -2,19 +2,38 @@
 var state = 0;
 
 var inputData = [];
-inputData["c06071"] = 10;
+
+var fips1 = [incoming1, outgoing1];
+var fips2 = [incoming2, outgoing2];
+
+var incoming1 = [county_count2_in, county_count3_in];
+var incoming2 = [county_count1_in, county_count3_in];
+
+var outgoing1 = [county_count2_out, county_count3_out];
+var outgoing2 = [county_count1_out, county_count3_out];
+
+var county_count1_in = ["c06071", 100];
+var county_count2_in = ["c48043", 50];
+var county_count3_in = ["c48479", 80];
+
+var county_count1_out = ["c06071", 2];
+var county_count2_out = ["c48043", 1];
+var county_count3_out = ["c48479", 8];
+
+inputData["c06071"] = fips1;
+inputData["c48043"] = fips2;
+
 
 var yellow_states={};
 
-var arrivingArray = []
-var leavingArray = []
-arrivingArray["c06071"] = 10
+
 
 $(document).ready(function() {
 
 
-
 	$('.results').hide();
+
+	console.log(inputData);
 
 	// TO DO
 	// color counties with Hertz yellow to start
@@ -121,11 +140,22 @@ function leaving(county) {
 	var county_name = county.attr("id");
 	console.log(county_name);
 
+	
+	// var top1 = ;
+	// var top2 =;
+	// var top3 =;
+
 	$('#leaving')
 	.append(
 		$('<div>').attr("class", "info")
 		.append(
-			$('<div>').attr("class", "hd").html("Leaving")
+			$('<div>').attr("class", "hd").html("Outgoing")
+			)
+		.append(
+			$('<div>').attr("class", "data").html(county_name)
+			)
+		.append(
+			$('<div>').attr("class", "data").html(county_name)
 			)
 		.append(
 			$('<div>').attr("class", "data").html(county_name)
@@ -139,11 +169,21 @@ function arriving(county) {
 	var county_name = county.attr("id");
 	console.log(county_name);
 
+	// var top1 =;
+	// var top2 =;
+	// var top3 =;
+
 	$('#arriving')
 	.append(
 		$('<div>').attr("class", "info")
 		.append(
-			$('<div>').attr("class", "hd").html("Arriving")
+			$('<div>').attr("class", "hd").html("Incoming")
+			)
+		.append(
+			$('<div>').attr("class", "data").html(county_name)
+			)
+		.append(
+			$('<div>').attr("class", "data").html(county_name)
 			)
 		.append(
 			$('<div>').attr("class", "data").html(county_name)
