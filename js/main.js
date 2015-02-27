@@ -4,12 +4,12 @@ var state = 0;
 var inputData = [];
 
 var county_count1_in = ["c06071", 100];
-var county_count2_in = ["c48043", 50];
+var county_count2_in = ["c48043", 20];
 var county_count3_in = ["c48479", 80];
 var county_count4_in = ["c51630", 10];
 
 var county_count1_out = ["c06071", 2];
-var county_count2_out = ["c48043", 1];
+var county_count2_out = ["c48043", 50];
 var county_count3_out = ["c48479", 8];
 var county_count4_out = ["c51630", 7];
 
@@ -30,7 +30,7 @@ inputData["c48043"] = fips2;
 
 
 var yellow_states={};
-
+var codetoname={};
 
 
 $(document).ready(function() {
@@ -47,9 +47,153 @@ $(document).ready(function() {
 	coloryellow();
 
 	$('.counties path').mouseover(function() {
+
+		var county_name = $(this).attr("id");
+		var fips = $(this).attr("class");
+		var top1_i;
+		var top2_i;
+		var top3_i;
+		var top1_o;
+		var top2_o;
+		var top3_o;
+
+		if (typeof inputData[fips] != 'undefined') {
+			top1_i = inputData[fips][0][0];
+			top2_i = inputData[fips][0][1];
+			top3_i = inputData[fips][0][2];
+
+			top1_o = inputData[fips][1][0];
+			top2_o = inputData[fips][1][1];
+			top3_o = inputData[fips][1][2];
+		}
+
+		// $("." + top1_i[0]).css("fill", "black");
+
 		if (state == 0) {
 			$(this).css("fill", "#9A009E");
+
+			if (typeof inputData[fips] != 'undefined') {
+				$("." + top1_i[0]).css("fill", "green");
+				$("." + top2_i[0]).css("fill", "green");
+				$("." + top3_i[0]).css("fill", "green");
+
+				if (top1_o[0] == top1_i[0]) {
+					if (top1_o[1] - top1_i[1] > 0) {
+						$("." + top1_o[0]).css("fill", "red");
+					}
+					else if (top1_o[1] - top1_i[1] < 0) {
+						$("." + top1_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top1_o[0]).css("fill", "orange");
+					}
+				}
+				else if (top1_o[0] == top2_i[0]) {
+					if (top1_o[1] - top2_i[1] > 0) {
+						$("." + top1_o[0]).css("fill", "red");
+					}
+					else if (top1_o[1] - top2_i[1] < 0) {
+						$("." + top1_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top1_o[0]).css("fill", "orange");
+					}
+				}
+				else if (top1_o[0] == top3_i[0]) {
+					if (top1_o[1] - top3_i[1] > 0) {
+						$("." + top1_o[0]).css("fill", "red");
+					}
+					else if (top1_o[1] - top3_i[1] < 0) {
+						$("." + top1_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top1_o[0]).css("fill", "orange");
+					}
+				}
+				else {
+					$("." + top1_o[0]).css("fill", "red");
+				}
+
+				if (top2_o[0] == top1_i[0]) {
+					if (top2_o[1] - top1_i[1] > 0) {
+						$("." + top2_o[0]).css("fill", "red");
+					}
+					else if (top2_o[1] - top1_i[1] < 0) {
+						$("." + top2_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top2_o[0]).css("fill", "orange");
+					}
+				}
+				else if (top2_o[0] == top2_i[0]) {
+					if (top2_o[1] - top2_i[1] > 0) {
+						$("." + top2_o[0]).css("fill", "red");
+					}
+					else if (top2_o[1] - top2_i[1] < 0) {
+						$("." + top2_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top2_o[0]).css("fill", "orange");
+					}
+				}
+				else if (top2_o[0] == top3_i[0]) {
+					if (top2_o[1] - top3_i[1] > 0) {
+						$("." + top2_o[0]).css("fill", "red");
+					}
+					else if (top2_o[1] - top3_i[1] < 0) {
+						$("." + top2_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top2_o[0]).css("fill", "orange");
+					}
+				}
+				else {
+					$("." + top2_o[0]).css("fill", "red");
+				}
+
+				if (top3_o[0] == top1_i[0]) {
+					if (top3_o[1] - top1_i[1] > 0) {
+						$("." + top3_o[0]).css("fill", "red");
+					}
+					else if (top3_o[1] - top1_i[1] < 0) {
+						$("." + top3_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top3_o[0]).css("fill", "orange");
+					}
+				}
+				else if (top3_o[0] == top2_i[0]) {
+					if (top3_o[1] - top2_i[1] > 0) {
+						$("." + top3_o[0]).css("fill", "red");
+					}
+					else if (top3_o[1] - top2_i[1] < 0) {
+						$("." + top3_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top3_o[0]).css("fill", "orange");
+					}
+				}
+				else if (top3_o[0] == top3_i[0]) {
+					if (top3_o[1] - top3_i[1] > 0) {
+						$("." + top3_o[0]).css("fill", "red");
+					}
+					else if (top3_o[1] - top3_i[1] < 0) {
+						$("." + top3_o[0]).css("fill", "green");
+					}
+					else {
+						$("." + top3_o[0]).css("fill", "orange");
+					}
+				}
+				else {
+					$("." + top3_o[0]).css("fill", "red");
+				}
+
+
+
+
+			}
 		}
+
 		else {
 			var state_code = $(this).attr("id").split(",")[1].trim();
 			$('.counties').children().each(function () {
@@ -60,16 +204,11 @@ $(document).ready(function() {
 			});
 		}
 
-		// TO DO
-		// dummy conditional - should be IF THERE IS HERTZ STATION IN COUNTY
-		if ($(this).attr("id").indexOf('AK') > -1 || 
-			$(this).attr("id").indexOf('TX') > -1 || 
-			$(this).attr("id").indexOf('CA') > -1 || 
-			$(this).attr("id").indexOf('PA') > -1) {
+		if (typeof inputData[$(this).attr("class")] != 'undefined') {
 			populateResults($(this));
-		$('.results').show();
-	}
-});
+			$('.results').show();
+		}
+	});
 
 	$('.counties path').mouseleave(function() {
 		if (state == 0) {
@@ -128,7 +267,6 @@ function coloryellow() {
 			$(this).css("fill", "#FFF600");
 		}
 	});
-	console.log(yellow_states);
 }
 
 
@@ -147,33 +285,33 @@ function leaving(county) {
 	var county_name = county.attr("id");
 	var fips = county.attr("class");
 
-	console.log(fips);
 	if (typeof inputData[fips] != 'undefined') {
-		console.log("HERHERE");
-		console.log("******" + inputData[fips] + "*****")
 		var top1 = inputData[fips][1][0];
 		var top2 = inputData[fips][1][1];
 		var top3 = inputData[fips][1][2];
+		console.log("." + top1[0]);
+
+
+		$('#leaving')
+		.append(
+			$('<div>').attr("class", "info")
+			.append(
+				$('<div>').attr("class", "hd").html("Outgoing")
+				)
+			.append(
+				$('<div>').attr("class", "data").html(codetoname[top1[0]] + " : " + top1[1])
+				)
+			.append(
+				$('<div>').attr("class", "data").html(codetoname[top2[0]] + " : " + top2[1])
+				)
+			.append(
+				$('<div>').attr("class", "data").html(codetoname[top3[0]] + " : " + top3[1])
+				)
+			);
 	}
 
-	console.log(top1);
 
-	$('#leaving')
-	.append(
-		$('<div>').attr("class", "info")
-		.append(
-			$('<div>').attr("class", "hd").html("Outgoing")
-			)
-		.append(
-			$('<div>').attr("class", "data").html(top1[0] + " : " + top1[1])
-			)
-		.append(
-			$('<div>').attr("class", "data").html(top2[0] + " : " + top2[1])
-			)
-		.append(
-			$('<div>').attr("class", "data").html(top3[0] + " : " + top3[1])
-			)
-		);
+	
 }
 
 function arriving(county) {
@@ -186,31 +324,33 @@ function arriving(county) {
 		var top1 = inputData[fips][0][0];
 		var top2 = inputData[fips][0][1];
 		var top3 = inputData[fips][0][2];
+
+		$('#arriving')
+		.append(
+			$('<div>').attr("class", "info")
+			.append(
+				$('<div>').attr("class", "hd").html("Incoming")
+				)
+			.append(
+				$('<div>').attr("class", "data").html(top1[0] + " : " + top1[1])
+				)
+			.append(
+				$('<div>').attr("class", "data").html(top2[0] + " : " + top2[1])
+				)
+			.append(
+				$('<div>').attr("class", "data").html(top3[0] + " : " + top3[1])
+				)
+			);
 	}
 
-	console.log(top1);
-
-	$('#arriving')
-	.append(
-		$('<div>').attr("class", "info")
-		.append(
-			$('<div>').attr("class", "hd").html("Incoming")
-			)
-		.append(
-			$('<div>').attr("class", "data").html(top1[0] + " : " + top1[1])
-			)
-		.append(
-			$('<div>').attr("class", "data").html(top2[0] + " : " + top2[1])
-			)
-		.append(
-			$('<div>').attr("class", "data").html(top3[0] + " : " + top3[1])
-			)
-		);
+	
 }
 
 function setup() {
+	$('.counties').children().each(function () {
+		codetoname[$(this).attr("class")] = $(this).attr("id");
+	});
 
-	
 }
 
 
