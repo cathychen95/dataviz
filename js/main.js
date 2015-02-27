@@ -1,7 +1,11 @@
 // 0 is by county, 1 is by state
 var state = 0;
+var inputData;
 
-var inputData = [];
+$.getJSON( "inputData.js", function( json ) {
+	inputData = json;
+ 	console.log( "JSON Data: " + inputData["c06071"]);
+ });
 
 var county_count1_in = ["c06071", 100];
 var county_count2_in = ["c48043", 20];
