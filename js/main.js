@@ -5,12 +5,12 @@ var inputData = [];
 
 var county_count1_in = ["c06071", 100];
 var county_count2_in = ["c48043", 20];
-var county_count3_in = ["c48479", 80];
+var county_count3_in = ["c48479", 50];
 var county_count4_in = ["c51630", 10];
 
 var county_count1_out = ["c06071", 2];
 var county_count2_out = ["c48043", 50];
-var county_count3_out = ["c48479", 8];
+var county_count3_out = ["c48479", 50];
 var county_count4_out = ["c51630", 7];
 
 
@@ -189,8 +189,6 @@ $(document).ready(function() {
 				}
 
 
-
-
 			}
 		}
 
@@ -211,8 +209,77 @@ $(document).ready(function() {
 	});
 
 	$('.counties path').mouseleave(function() {
+
+		var county_name = $(this).attr("id");
+		var fips = $(this).attr("class");
+		var top1_i;
+		var top2_i;
+		var top3_i;
+		var top1_o;
+		var top2_o;
+		var top3_o;
+
+		if (typeof inputData[fips] != 'undefined') {
+			top1_i = inputData[fips][0][0];
+			top2_i = inputData[fips][0][1];
+			top3_i = inputData[fips][0][2];
+
+			top1_o = inputData[fips][1][0];
+			top2_o = inputData[fips][1][1];
+			top3_o = inputData[fips][1][2];
+		}
+
 		if (state == 0) {
 			$(this).css("fill", "white");
+			if (typeof inputData[fips] != 'undefined') {
+				if($("." + top1_i[0]).data("isYellow") == 1) {
+					$("." + top1_i[0]).css("fill", "#FFF600");
+				}
+				else {
+					$("." + top1_i[0]).css("fill", "#FFF");
+				}
+			}
+			if (typeof inputData[fips] != 'undefined') {
+				if($("." + top2_i[0]).data("isYellow") == 1) {
+					$("." + top2_i[0]).css("fill", "#FFF600");
+				}
+				else {
+					$("." + top2_i[0]).css("fill", "#FFF");
+				}
+			}
+			if (typeof inputData[fips] != 'undefined') {
+				if($("." + top3_i[0]).data("isYellow") == 1) {
+					$("." + top3_i[0]).css("fill", "#FFF600");
+				}
+				else {
+					$("." + top3_i[0]).css("fill", "#FFF");
+				}
+			}
+
+			if (typeof inputData[fips] != 'undefined') {
+				if($("." + top1_o[0]).data("isYellow") == 1) {
+					$("." + top1_o[0]).css("fill", "#FFF600");
+				}
+				else {
+					$("." + top1_o[0]).css("fill", "#FFF");
+				}
+			}
+			if (typeof inputData[fips] != 'undefined') {
+				if($("." + top2_o[0]).data("isYellow") == 1) {
+					$("." + top2_o[0]).css("fill", "#FFF600");
+				}
+				else {
+					$("." + top2_o[0]).css("fill", "#FFF");
+				}
+			}
+			if (typeof inputData[fips] != 'undefined') {
+				if($("." + top3_o[0]).data("isYellow") == 1) {
+					$("." + top3_o[0]).css("fill", "#FFF600");
+				}
+				else {
+					$("." + top3_o[0]).css("fill", "#FFF");
+				}
+			}
 		}
 		else {
 			var state_code = $(this).attr("id").split(",")[1].trim();
@@ -332,13 +399,13 @@ function arriving(county) {
 				$('<div>').attr("class", "hd").html("Incoming")
 				)
 			.append(
-				$('<div>').attr("class", "data").html(top1[0] + " : " + top1[1])
+				$('<div>').attr("class", "data").html(codetoname[top1[0]] + " : " + top1[1])
 				)
 			.append(
-				$('<div>').attr("class", "data").html(top2[0] + " : " + top2[1])
+				$('<div>').attr("class", "data").html(codetoname[top2[0]] + " : " + top2[1])
 				)
 			.append(
-				$('<div>').attr("class", "data").html(top3[0] + " : " + top3[1])
+				$('<div>').attr("class", "data").html(codetoname[top3[0]] + " : " + top3[1])
 				)
 			);
 	}
