@@ -3,30 +3,6 @@ var state = 0;
 
 var inputData = window.input_set;
 
-// var county_count1_in = ["c06071", 100];
-// var county_count2_in = ["c48043", 20];
-// var county_count3_in = ["c48479", 50];
-// var county_count4_in = ["c51630", 10];
-
-// var county_count1_out = ["c06071", 2];
-// var county_count2_out = ["c48043", 50];
-// var county_count3_out = ["c48479", 50];
-// var county_count4_out = ["c51630", 7];
-
-
-// var incoming1 = [county_count2_in, county_count3_in, county_count4_in];
-// var incoming2 = [county_count1_in, county_count3_in, county_count4_in];
-
-// var outgoing1 = [county_count2_out, county_count3_out, county_count4_out];
-// var outgoing2 = [county_count1_out, county_count3_out, county_count4_out];
-
-// var fips1 = [incoming1, outgoing1];
-// var fips2 = [incoming2, outgoing2];
-
-
-
-// inputData["c06071"] = fips1;
-// inputData["c48043"] = fips2;
 
 
 var yellow_states={};
@@ -192,7 +168,7 @@ $(document).ready(function() {
 
 		else {
 			var state_code = $(this).attr("id").split(",")[1].trim();
-
+			
 			if (typeof inputData[fips] != 'undefined') {
 				var top1_i_state = codetoname[top1_i[0]].split(",")[1].trim();
 				var top2_i_state = codetoname[top2_i[0]].split(",")[1].trim();
