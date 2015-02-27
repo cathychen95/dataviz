@@ -53,7 +53,12 @@ $(document).ready(function() {
 			var state_code = $(this).attr("id").split(",")[1].trim();
 			$('.counties').children().each(function () {
 				if ($(this).attr("id").indexOf(state_code) > -1) {
-					$(this).css("fill", "#FFF");
+					if($(this).data("isYellow") == 1) {
+						$(this).css("fill", "#FFF600");
+					}
+					else {
+						$(this).css("fill", "#FFF");
+					}
 				}
 			});
 		}
