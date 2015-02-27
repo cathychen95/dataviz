@@ -1,3 +1,6 @@
+// 0 is by county, 1 is by state
+var state = 0;
+
 $(document).ready(function() {
 
 	$('.results').hide();
@@ -7,7 +10,18 @@ $(document).ready(function() {
 	coloryellow();
 
 	$('.counties path').mouseover(function() {
-		$(this).css("fill", "#9A009E");
+		if (state == 0) {
+			$(this).css("fill", "#9A009E");
+		}
+		else {
+			var state_code = $(this).attr("id").split(",")[1].trim();
+			$('.counties').children().each(function () {
+				if ($(this).attr("id").indexOf(state_code) > -1) {
+					$(this).css("fill", "#9A009E");
+				}
+
+			});
+		}
 
 		// TO DO
 		// dummy conditional - should be IF THERE IS HERTZ STATION IN COUNTY
@@ -21,12 +35,33 @@ $(document).ready(function() {
 	});
 
 	$('.counties path').mouseleave(function() {
-		$(this).css("fill", "white");
+		if (state == 0) {
+			$(this).css("fill", "white");
+		}
+		else {
+			var state_code = $(this).attr("id").split(",")[1].trim();
+			$('.counties').children().each(function () {
+				if ($(this).attr("id").indexOf(state_code) > -1) {
+					$(this).css("fill", "#FFF");
+				}
+			});
+		}
+
 		$('.results').hide();
 	});
 
-	$('a#toggle').click(function(){
-        $(this).toggleClass("down");
+	$('#toggle').click(function(){
+		$('#state').empty();
+		if ($('#toggle img').attr("src") == "img/toggle_left.svg") {
+			$('#toggle img').attr("src", "img/toggle_right.svg");
+			$('#state').html("BY STATE");
+			state = 1;
+		}
+		else {
+			$('#toggle img').attr("src", "img/toggle_left.svg");
+			$('#state').html("BY COUNTY");
+			state = 0;
+		}
     });
 
 });
@@ -83,3 +118,5 @@ function arriving(county) {
 		);
 }
 
+
+// TO DO SUGGESTIONS
