@@ -58,7 +58,9 @@ $(document).ready(function() {
 				}
 			});
 		}
-
+		if($(this).data("isYellow") == 1) {
+			$(this).css("fill", "#FFF600");
+		}
 		$('.results').hide();
 	});
 
@@ -84,6 +86,7 @@ function coloryellow() {
     	var fipsCode = $(this).attr("class");
     	console.log(inputData[fipsCode]);
     	if(typeof inputData[fipsCode] != 'undefined') {
+    		$(this).data("isYellow", 1);
     		$(this).css("fill", "#FFF600");
     	}
 	});
