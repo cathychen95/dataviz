@@ -194,6 +194,257 @@ $(document).ready(function() {
 
 		else {
 			var state_code = $(this).attr("id").split(",")[1].trim();
+
+			if (typeof inputData[fips] != 'undefined') {
+				var top1_i_state = codetoname[top1_i[0]].split(",")[1].trim();
+				var top2_i_state = codetoname[top2_i[0]].split(",")[1].trim();
+				var top3_i_state = codetoname[top3_i[0]].split(",")[1].trim();
+				var top1_o_state = codetoname[top1_o[0]].split(",")[1].trim();
+				var top2_o_state = codetoname[top2_o[0]].split(",")[1].trim();
+				var top3_o_state = codetoname[top3_o[0]].split(",")[1].trim();
+
+				$('.counties').children().each(function () {
+					if ($(this).attr("id").indexOf(top1_i_state) > -1 || $(this).attr("id").indexOf(top2_i_state) > -1 || $(this).attr("id").indexOf(top3_i_state) > -1) {
+						$(this).css("fill", "green");
+					}
+				});
+
+				if (top1_o[0] == top1_i[0]) {
+					if (top1_o[1] - top1_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top1_o[1] - top1_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else if (top1_o[0] == top2_i[0]) {
+					if (top1_o[1] - top2_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top1_o[1] - top2_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else if (top1_o[0] == top3_i[0]) {
+					if (top1_o[1] - top3_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top1_o[1] - top3_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else {
+					$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top1_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+				}
+
+				if (top2_o[0] == top1_i[0]) {
+					if (top2_o[1] - top1_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top2_o[1] - top1_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else if (top2_o[0] == top2_i[0]) {
+					if (top2_o[1] - top2_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top2_o[1] - top2_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else if (top2_o[0] == top3_i[0]) {
+					if (top2_o[1] - top3_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top2_o[1] - top3_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else {
+					$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top2_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+				}
+
+				if (top3_o[0] == top1_i[0]) {
+					if (top3_o[1] - top1_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top3_o[1] - top1_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else if (top3_o[0] == top2_i[0]) {
+					if (top3_o[1] - top2_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top3_o[1] - top2_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else if (top3_o[0] == top3_i[0]) {
+					if (top3_o[1] - top3_i[1] > 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+					}
+					else if (top3_o[1] - top3_i[1] < 0) {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "green");
+							}
+						});
+					}
+					else {
+						$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "orange");
+							}
+						});
+					}
+				}
+				else {
+					$('.counties').children().each(function () {
+							if ($(this).attr("id").indexOf(top3_o_state) > -1) {
+								$(this).css("fill", "red");
+							}
+						});
+				}
+
+
+			}
+
+
+
 			$('.counties').children().each(function () {
 				if ($(this).attr("id").indexOf(state_code) > -1) {
 					$(this).css("fill", "#9A009E");
@@ -208,112 +459,119 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.counties path').mouseleave(function() {
+$('.counties path').mouseleave(function() {
 
-		var county_name = $(this).attr("id");
-		var fips = $(this).attr("class");
-		var top1_i;
-		var top2_i;
-		var top3_i;
-		var top1_o;
-		var top2_o;
-		var top3_o;
+	var county_name = $(this).attr("id");
+	var fips = $(this).attr("class");
+	var top1_i;
+	var top2_i;
+	var top3_i;
+	var top1_o;
+	var top2_o;
+	var top3_o;
+
+	if (typeof inputData[fips] != 'undefined') {
+		top1_i = inputData[fips][0][0];
+		top2_i = inputData[fips][0][1];
+		top3_i = inputData[fips][0][2];
+
+		top1_o = inputData[fips][1][0];
+		top2_o = inputData[fips][1][1];
+		top3_o = inputData[fips][1][2];
+	}
+
+	if (state == 0) {
+		$(this).css("fill", "white");
+		if (typeof inputData[fips] != 'undefined') {
+			if($("." + top1_i[0]).data("isYellow") == 1) {
+				$("." + top1_i[0]).css("fill", "#FFF600");
+			}
+			else {
+				$("." + top1_i[0]).css("fill", "#FFF");
+			}
+		}
+		if (typeof inputData[fips] != 'undefined') {
+			if($("." + top2_i[0]).data("isYellow") == 1) {
+				$("." + top2_i[0]).css("fill", "#FFF600");
+			}
+			else {
+				$("." + top2_i[0]).css("fill", "#FFF");
+			}
+		}
+		if (typeof inputData[fips] != 'undefined') {
+			if($("." + top3_i[0]).data("isYellow") == 1) {
+				$("." + top3_i[0]).css("fill", "#FFF600");
+			}
+			else {
+				$("." + top3_i[0]).css("fill", "#FFF");
+			}
+		}
 
 		if (typeof inputData[fips] != 'undefined') {
-			top1_i = inputData[fips][0][0];
-			top2_i = inputData[fips][0][1];
-			top3_i = inputData[fips][0][2];
+			if($("." + top1_o[0]).data("isYellow") == 1) {
+				$("." + top1_o[0]).css("fill", "#FFF600");
+			}
+			else {
+				$("." + top1_o[0]).css("fill", "#FFF");
+			}
+		}
+		if (typeof inputData[fips] != 'undefined') {
+			if($("." + top2_o[0]).data("isYellow") == 1) {
+				$("." + top2_o[0]).css("fill", "#FFF600");
+			}
+			else {
+				$("." + top2_o[0]).css("fill", "#FFF");
+			}
+		}
+		if (typeof inputData[fips] != 'undefined') {
+			if($("." + top3_o[0]).data("isYellow") == 1) {
+				$("." + top3_o[0]).css("fill", "#FFF600");
+			}
+			else {
+				$("." + top3_o[0]).css("fill", "#FFF");
+			}
+		}
+	}
+	else {
+		var state_code = $(this).attr("id").split(",")[1].trim();
+		$('.counties').children().each(function () {
+			$(this).css("fill", "#FFF");
+			if ($(this).attr("id").indexOf(state_code) > -1) {
+				if($(this).data("isYellow") == 1) {
+					$(this).css("fill", "#FFF600");
+				}
+				else {
+					$(this).css("fill", "#FFF");
+				}
+			}
+		});
 
-			top1_o = inputData[fips][1][0];
-			top2_o = inputData[fips][1][1];
-			top3_o = inputData[fips][1][2];
-		}
+		coloryellow();
 
-		if (state == 0) {
-			$(this).css("fill", "white");
-			if (typeof inputData[fips] != 'undefined') {
-				if($("." + top1_i[0]).data("isYellow") == 1) {
-					$("." + top1_i[0]).css("fill", "#FFF600");
-				}
-				else {
-					$("." + top1_i[0]).css("fill", "#FFF");
-				}
-			}
-			if (typeof inputData[fips] != 'undefined') {
-				if($("." + top2_i[0]).data("isYellow") == 1) {
-					$("." + top2_i[0]).css("fill", "#FFF600");
-				}
-				else {
-					$("." + top2_i[0]).css("fill", "#FFF");
-				}
-			}
-			if (typeof inputData[fips] != 'undefined') {
-				if($("." + top3_i[0]).data("isYellow") == 1) {
-					$("." + top3_i[0]).css("fill", "#FFF600");
-				}
-				else {
-					$("." + top3_i[0]).css("fill", "#FFF");
-				}
-			}
 
-			if (typeof inputData[fips] != 'undefined') {
-				if($("." + top1_o[0]).data("isYellow") == 1) {
-					$("." + top1_o[0]).css("fill", "#FFF600");
-				}
-				else {
-					$("." + top1_o[0]).css("fill", "#FFF");
-				}
-			}
-			if (typeof inputData[fips] != 'undefined') {
-				if($("." + top2_o[0]).data("isYellow") == 1) {
-					$("." + top2_o[0]).css("fill", "#FFF600");
-				}
-				else {
-					$("." + top2_o[0]).css("fill", "#FFF");
-				}
-			}
-			if (typeof inputData[fips] != 'undefined') {
-				if($("." + top3_o[0]).data("isYellow") == 1) {
-					$("." + top3_o[0]).css("fill", "#FFF600");
-				}
-				else {
-					$("." + top3_o[0]).css("fill", "#FFF");
-				}
-			}
-		}
-		else {
-			var state_code = $(this).attr("id").split(",")[1].trim();
-			$('.counties').children().each(function () {
-				if ($(this).attr("id").indexOf(state_code) > -1) {
-					if($(this).data("isYellow") == 1) {
-						$(this).css("fill", "#FFF600");
-					}
-					else {
-						$(this).css("fill", "#FFF");
-					}
-				}
-			});
-		}
-		if($(this).data("isYellow") == 1) {
-			$(this).css("fill", "#FFF600");
-		}
-		$('.results').hide();
-	});
+	}
+	if($(this).data("isYellow") == 1) {
+		$(this).css("fill", "#FFF600");
+	}
+	$('.results').hide();
+});
 
-	$('#toggle').click(function(){
-		$('#state').empty();
-		if ($('#toggle img').attr("src") == "img/toggle_left.svg") {
-			$('#toggle img').attr("src", "img/toggle_right.svg");
-			$('#state').html("BY STATE");
-			state = 1;
-		}
-		else {
-			$('#toggle img').attr("src", "img/toggle_left.svg");
-			$('#state').html("BY COUNTY");
-			state = 0;
-		}
+$('#toggle').click(function(){
+	$('#state').empty();
+	if ($('#toggle img').attr("src") == "img/toggle_left.svg") {
+		$('#toggle img').attr("src", "img/toggle_right.svg");
+		$('#state').html("BY STATE");
+		state = 1;
+	}
+	else {
+		$('#toggle img').attr("src", "img/toggle_left.svg");
+		$('#state').html("BY COUNTY");
+		state = 0;
+	}
 
-	});
+	coloryellow();
+
+});
 });
 
 // svg set up - color counties with Hertz yellow
