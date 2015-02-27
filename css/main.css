@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Bebas';
+    src: url('../fonts/BebasNeue\ Regular.ttf');
+}
+
+/*TOGGLE*/
+
+a {
+    background: #ccc;
+    cursor: pointer;
+    border-top: solid 2px #eaeaea;
+    border-left: solid 2px #eaeaea;
+    border-bottom: solid 2px #777;
+    border-right: solid 2px #777;
+    padding: 5px 5px;   	
+    }
+
+a.down {
+    background: #bbb;
+    border-top: solid 2px #777;
+    border-left: solid 2px #777;
+    border-bottom:solid 2px  #eaeaea;
+    border-right: solid 2px #eaeaea;
+    }
+    
+#toggle {
+
+}
+
+
+/*RESULT CIRCLES*/
+
+.results {
+	width:250px;
+	height: 250px;
+	position: absolute;
+	border-radius: 125px;
+
+}
+
+#leaving {
+	float:left;
+	left: 20px;
+	top: 200px;
+	background-color: rgba(255,0,0,0.1);
+}
+
+#arriving {
+	right: 20px;
+	top: 200px;
+	float:right;
+	background-color: rgba(0,255,0,0.1);
+}
+
+.info {
+	opacity: 1;
+	color: #FFF;
+	text-align: center;
+	padding-top: 80px;
+}
+
+.hd {
+	font-family: 'Bebas';
+	font-size: 30px;
+}
+
+.data {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 20px;
+}
+
+
+/*BODY SETUP*/
+
+body {
+	/*background-image: url(../img/footer_lodyas.png);*/
+	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img/footer_lodyas.png);
+	cursor: default;
+}
+
+#header {
+	height: 80px;
+	margin-bottom: 30px;
+	background-color: #FFF600;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#left {
+	font-family: 'Bebas';
+	font-size: 40px;
+	line-height: 80px;
+	float: left;
+}
+
+#right {
+	float: right;
+	text-align: right;	
+	font-family: 'Open Sans Condensed', sans-serif;
+	line-height: 40px;
+	color: #990;
+	/*font-family: 'Roboto', sans-serif;*/
+}
+
+#title {
+	font-weight: 300;
+	font-size: 25px;
+}
+
+#author {
+	font-weight: 200;
+	font-size: 12px;
+}
+
+
+#usa {
+
+}
+
+#usa svg {
+	height: 500px;
+	width: auto;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
