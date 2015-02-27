@@ -1,6 +1,9 @@
 // 0 is by county, 1 is by state
 var state = 0;
 
+var inputData = []
+	inputData["c06071"] = 10
+
 $(document).ready(function() {
 
 	$('.results').hide();
@@ -17,8 +20,6 @@ $(document).ready(function() {
 		var name = string
 	}
 	*/
-
-	var inputData = []
 
 	$('.counties path').mouseover(function() {
 		if (state == 0) {
@@ -79,9 +80,10 @@ $(document).ready(function() {
 
 // svg set up - color counties with Hertz yellow
 function coloryellow() {
-	$('.children').children().each(function () {
+	$('.counties').children().each(function () {
     	var fipsCode = $(this).attr("class");
-    	if(inputData[fipsCode] > -1) {
+    	console.log(inputData[fipsCode]);
+    	if(typeof inputData[fipsCode] != 'undefined') {
     		$(this).css("fill", "#FFF600");
     	}
 	});
