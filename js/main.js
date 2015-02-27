@@ -9,6 +9,17 @@ $(document).ready(function() {
 	// color counties with Hertz yellow to start
 	coloryellow();
 
+	/* 
+	inputData[i] {
+		var fipsCode = int
+		var leaving = int
+		var arriving = int
+		var name = string
+	}
+	*/
+
+	var inputData = []
+
 	$('.counties path').mouseover(function() {
 		if (state == 0) {
 			$(this).css("fill", "#9A009E");
@@ -66,12 +77,15 @@ $(document).ready(function() {
 
 });
 
-
 // svg set up - color counties with Hertz yellow
 function coloryellow() {
-	// TO DO
+	$('.children').children().each(function () {
+    	var fipsCode = $(this).attr("class");
+    	if(inputData[fipsCode] > -1) {
+    		$(this).css("fill", "#FFF600");
+    	}
+	});
 }
-
 
 function populateResults(county) {
 	leaving(county);
